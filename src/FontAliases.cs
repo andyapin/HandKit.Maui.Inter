@@ -1,4 +1,4 @@
-﻿namespace Plugin.Toolkit.Fonts.Inter
+﻿namespace Oryn.Maui.Font.Inter
 {
     internal class FontAliases
     {

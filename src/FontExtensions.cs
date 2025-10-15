@@ -1,4 +1,4 @@
-﻿namespace Plugin.Toolkit.Fonts.Inter;
+﻿namespace Oryn.Maui.Font.Inter;
 
 /// <summary>
 /// Provides extension methods for adding Inter fonts to an IFontCollection.

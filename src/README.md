@@ -1,9 +1,9 @@
 
-# Plugin.Toolkit.Fonts.Inter
+# Oryn.Maui.Font.Inter
 
 ![icon](https://handityo.my.id/icon_nuget.png)
 
-[![NuGet](https://img.shields.io/nuget/v/Plugin.Toolkit.Fonts.Inter)](https://www.nuget.org/packages/Plugin.Toolkit.Fonts.Inter)
+[![NuGet](https://img.shields.io/nuget/v/Oryn.Maui.Font.Inter)](https://www.nuget.org/packages/Oryn.Maui.Font.Inter)
 [![.NET MAUI](https://img.shields.io/badge/.NET%20MAUI-512BD4?style=flat&logo=dotnet&label=.NET%20MAUI)](https://dotnet.microsoft.com/en-us/apps/maui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -31,7 +31,7 @@ This plugin simplifies the process of including the Inter font family in your .N
 You can install the plugin via NuGet:
 
 ```bash
-Install-Package Plugin.Toolkit.Fonts.Inter
+Install-Package Oryn.Maui.Font.Inter
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ Install-Package Plugin.Toolkit.Fonts.Inter
     In your `MauiProgram.cs` file:
 
     ```csharp
-    using Plugin.Toolkit.Fonts.Inter;
+    using Oryn.Maui.Font.Inter;
 
     public static class MauiProgram
     {

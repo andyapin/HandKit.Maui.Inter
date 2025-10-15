@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using Plugin.Toolkit.Fonts.Inter;
+using Oryn.Maui.Font.Inter;
 
 namespace MauiAppSample
 {
