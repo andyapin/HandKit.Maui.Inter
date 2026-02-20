@@ -1,0 +1,12 @@
+﻿<Project>
+	<ItemGroup>
+		<MauiFont Include="$(MSBuildThisFileDirectory)\Fonts\InterBold.ttf" />
+		<MauiFont Include="$(MSBuildThisFileDirectory)\Fonts\InterBoldItalic.ttf" />
+		<MauiFont Include="$(MSBuildThisFileDirectory)\Fonts\InterItalic.ttf" />
+		<MauiFont Include="$(MSBuildThisFileDirectory)\Fonts\InterMedium.ttf" />
+		<MauiFont Include="$(MSBuildThisFileDirectory)\Fonts\InterMediumItalic.ttf" />
+		<MauiFont Include="$(MSBuildThisFileDirectory)\Fonts\InterRegular.ttf" />
+		<MauiFont Include="$(MSBuildThisFileDirectory)\Fonts\InterSemiBold.ttf" />
+		<MauiFont Include="$(MSBuildThisFileDirectory)\Fonts\InterSemiBoldItalic.ttf" />
+	</ItemGroup>
+</Project>

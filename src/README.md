@@ -1,91 +1,127 @@
-
-# Oryn.Maui.Font.Inter
+# HandKit.Maui.Inter
 
 ![icon](https://handityo.my.id/icon_nuget.png)
 
-[![NuGet](https://img.shields.io/nuget/v/Oryn.Maui.Font.Inter)](https://www.nuget.org/packages/Oryn.Maui.Font.Inter)
-[![.NET MAUI](https://img.shields.io/badge/.NET%20MAUI-512BD4?style=flat&logo=dotnet&label=.NET%20MAUI)](https://dotnet.microsoft.com/en-us/apps/maui)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![NuGet Version](https://img.shields.io/nuget/v/HandKit.Maui.Inter)
+![License](https://img.shields.io/github/license/andyapin/HandKit.Maui.Inter)
+![Platform](https://img.shields.io/badge/Platform-MAUI-512BD4)
 
-[![Platform](https://img.shields.io/badge/Platform-Android-green)](https://www.android.com/)
-[![Platform](https://img.shields.io/badge/Platform-iOS-blue)](https://www.apple.com/ios/ios-16/)
-[![Platform](https://img.shields.io/badge/Platform-Windows-0078D7)](https://www.microsoft.com/en-us/windows)
-[![Platform](https://img.shields.io/badge/Platform-macOS-00203a)](https://www.apple.com/macos/)
+**Effortlessly integrate the Inter font family into your .NET MAUI applications.**
 
-**Effortlessly integrate the Inter font family into your .NET MAUI applications.** 
+Inter is a typeface carefully crafted & designed for computer screens. It features a tall x-height to aid in readability of mixed-case and lower-case text.
 
-Inter, a popular geometric sans-serif typeface, offers a clean and modern aesthetic, supporting a wide range of languages.
+This library simplifies the process of including the Inter font family in your .NET MAUI apps, providing pre-configured font aliases and automatic resource inclusion.
 
-This plugin simplifies the process of including the Inter font family in your .NET MAUI apps, eliminating the need for manual font embedding and registration. It provides pre-configured font resources that can be easily accessed and applied to your UI elements.
+## Features
 
-## Key Features
-
-*   Easy integration with .NET MAUI projects.
-*   Includes various weights and styles of the Inter font (e.g., Regular, Bold, Italic, etc.).
-*   Optimized for performance in mobile and desktop environments.
-*   Cross-platform compatibility (iOS, Android, Windows, macOS).
-*   Example project demonstrating usage.
+- **Easy Integration**: Add Inter fonts with a single line of code.
+- **Multiple Weights**: Includes Regular, Medium, SemiBold, and Bold weights.
+- **Italic Styles**: Includes Italic variants for all supported weights.
+- **Customizable Alias**: Option to prefix font aliases to avoid conflicts.
+- **Cross-Platform**: Works on Android, iOS, macOS, and Windows.
 
 ## Installation
 
-You can install the plugin via NuGet:
+Install the package via NuGet:
 
 ```bash
-Install-Package Oryn.Maui.Font.Inter
+dotnet add package HandKit.Maui.Inter
+```
+
+Or via the Package Manager Console:
+
+```powershell
+Install-Package HandKit.Maui.Inter
 ```
 
 ## Usage
 
-1.  **Register the font:**
+### 1. Initialize the Plugin
 
-    In your `MauiProgram.cs` file:
+In your `MauiProgram.cs`, add the `UseInterFonts` method to your `MauiAppBuilder`:
 
-    ```csharp
-    using Oryn.Maui.Font.Inter;
+```csharp
+using HandKit.Maui.Inter; // Add this namespace
 
-    public static class MauiProgram
+public static class MauiProgram
+{
+    public static MauiApp CreateMauiApp()
     {
-        public static MauiApp CreateMauiApp()
-        {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-	                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-	                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-	                fonts.AddInterFonts(); // <-- add this if using this font to global. using: FontFamily="Regular" (Italic, Medium, SemiBold, Bold, MediumItalic, SemiBoldItalic, BoldItalic)
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .UseInterFonts(); // Registers the fonts with default aliases
 
-     		//fonts.AddInterFontsPartial(); // <-- add this if using this font as partial. using: FontFamily="InterRegular" (InterItalic, InterMedium, InterSemiBold, InterBold, InterMediumItalic, InterSemiBoldItalic, InterBoldItalic)
-                });
-
-            return builder.Build();
-        }
+        return builder.Build();
     }
-    ```
+}
+```
 
-2.  **Use the font in XAML:**
+### 2. Use Fonts in XAML
 
-    ```xml
-    <Label Text="Hello Inter!" FontFamily="Regular" />
-    <Label Text="This is Bold Inter!" FontFamily="Bold" />
-    ```
+By default, the fonts are registered with the following aliases:
 
-    Or with *Style*:
+- `Regular`
+- `Italic`
+- `Medium`
+- `MediumItalic`
+- `SemiBold`
+- `SemiBoldItalic`
+- `Bold`
+- `BoldItalic`
 
-    ```xml
-    <Style TargetType="Label" x:Key="InterLabelStyle">
-        <Setter Property="FontFamily" Value="SemiBold"/>
-    </Style>
+Example usage in XAML:
 
-    <Label Text="Hello Inter with style!" Style="{StaticResource InterLabelStyle}"/>
-    ```
+```xml
+<StackLayout Spacing="10" Padding="20">
+    <Label Text="Regular Text (Inter)" FontFamily="Regular" FontSize="16"/>
+    
+    <Label Text="Medium Text (Inter)" FontFamily="Medium" FontSize="16"/>
+    
+    <Label Text="SemiBold Text (Inter)" FontFamily="SemiBold" FontSize="16"/>
+    
+    <Label Text="Bold Text (Inter)" FontFamily="Bold" FontSize="16"/>
+    
+    <Label Text="Italic Text (Inter)" FontFamily="Italic" FontSize="16"/>
+</StackLayout>
+```
 
-## Example Project
-The repository includes a sample MAUI project demonstrating the usage of the plugin. You can find it in the `samples` directory.
+### Advanced Usage: Custom Alias Prefix
 
-## Contributing
-Contributions are welcome! Please open an issue or submit a pull request.
+If you have meaningful font name conflicts (e.g., you already have a font aliased as "Regular"), you can provide a custom prefix:
 
-## Contact
-If you have any questions or suggestions, please feel free to contact me at andyapin@gmail.com
+```csharp
+// In MauiProgram.cs
+builder.UseInterFonts("Inter"); 
+```
+
+This will change the registered aliases to:
+
+- `InterRegular`
+- `InterItalic`
+- `InterMedium`
+- ...and so on.
+
+Updated usage in XAML:
+
+```xml
+<Label Text="Hello Inter!" FontFamily="InterRegular" />
+<Label Text="Bold Inter!" FontFamily="InterBold" />
+```
+
+## Included Fonts
+
+The package includes the following font files from the Inter family:
+
+- **Regular**: `Inter-Regular.ttf`
+- **Italic**: `Inter-Italic.ttf`
+- **Medium**: `Inter-Medium.ttf`
+- **Medium Italic**: `Inter-MediumItalic.ttf`
+- **SemiBold**: `Inter-SemiBold.ttf`
+- **SemiBold Italic**: `Inter-SemiBoldItalic.ttf`
+- **Bold**: `Inter-Bold.ttf`
+- **Bold Italic**: `Inter-BoldItalic.ttf`
+
+## License
+
+This project is licensed under the MIT License.

@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0;net8.0-android;net8.0-ios;net8.0-maccatalyst;net9.0;net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0;net9.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net10.0;net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
 		<UseMaui>true</UseMaui>
@@ -19,15 +19,15 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<PackageProjectUrl>https://github.com/andyapin/Oryn.Maui.Font.Inter</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/andyapin/Oryn.Maui.Font.Inter</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/andyapin/HandKit.Maui.Inter</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/andyapin/HandKit.Maui.Inter</RepositoryUrl>
 		<PackageTags>plugin;toolkit;maui;font;android;ios;desktop;windows;mac</PackageTags>
 		<Description>Integrate Inter font family into .NET MAUI</Description>
 		<Copyright>© andyapin - www.handityo.my.id</Copyright>
 		<Authors>Ibnu Hajar Handityo</Authors>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageIcon>icon.png</PackageIcon>
-		<Version>1.0.1</Version>
+		<Version>1.0.0</Version>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)'=='Release'">
@@ -37,19 +37,19 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="Oryn.Maui.Font.Inter.targets" Pack="True" PackagePath="buildTransitive\" />
+		<None Include="HandKit.Maui.Inter.targets" Pack="True" PackagePath="buildTransitive\" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<MauiFont Include="Resources\Fonts\*" />
-		<None Include="Resources\Fonts\Inter-Bold.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
-		<None Include="Resources\Fonts\Inter-BoldItalic.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
-		<None Include="Resources\Fonts\Inter-Italic.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
-		<None Include="Resources\Fonts\Inter-Medium.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
-		<None Include="Resources\Fonts\Inter-MediumItalic.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
-		<None Include="Resources\Fonts\Inter-Regular.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
-		<None Include="Resources\Fonts\Inter-SemiBold.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
-		<None Include="Resources\Fonts\Inter-SemiBoldItalic.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
+		<None Include="Resources\Fonts\InterBold.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
+		<None Include="Resources\Fonts\InterBoldItalic.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
+		<None Include="Resources\Fonts\InterItalic.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
+		<None Include="Resources\Fonts\InterMedium.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
+		<None Include="Resources\Fonts\InterMediumItalic.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
+		<None Include="Resources\Fonts\InterRegular.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
+		<None Include="Resources\Fonts\InterSemiBold.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
+		<None Include="Resources\Fonts\InterSemiBoldItalic.ttf" Pack="True" PackagePath="buildTransitive\Fonts\" />
 	</ItemGroup>
 	
 	<ItemGroup>
@@ -59,7 +59,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 	</ItemGroup>
 
 </Project>
